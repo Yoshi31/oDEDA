@@ -23,6 +23,7 @@ class ImageStats:
     max_height: int
     unique_hashes: int
     duplicate_count: int = 0
+    duplicate_groups: dict = field(default_factory=dict)
     brightness_mean: float = 0.0
     brightness_std: float = 0.0
     contrast_mean: float = 0.0
