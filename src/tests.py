@@ -250,22 +250,22 @@ class ImageAnalyzer:
     def generate_report(self, stats: ImageStats, report_path: str = None) -> str:
         """Генерация отчета в формате Markdown."""
         report = [
-            "# Анализ изображений",
-            f"Всего изображений: {stats.total_images}",
+            "# Analys images",
+            f"Total images: {stats.total_images}",
             "",
-            "## Основные характеристики",
-            f"- Средний размер: {stats.avg_width:.0f}x{stats.avg_height:.0f}",
-            f"- Минимальный размер: {stats.min_width}x{stats.min_height}",
-            f"- Максимальный размер: {stats.max_width}x{stats.max_height}",
+            "## Main",
+            f"- Average size: {stats.avg_width:.0f}x{stats.avg_height:.0f}",
+            f"- Min size: {stats.min_width}x{stats.min_height}",
+            f"- Max size: {stats.max_width}x{stats.max_height}",
             "",
-            "## Дубликаты",
-            f"- Точные дубликаты: {len(stats.exact_duplicates)} групп",
-            f"- Приближенные дубликаты: {len(stats.near_duplicates)} групп",
+            "## Dublicates",
+            f"- dublicates: {len(stats.exact_duplicates)} groups",
+            f"- near Dublicates: {len(stats.near_duplicates)} groups",
             "",
-            "## Качество изображений",
-            f"- Слишком темные: {len(stats.quality_issues['dark'])}",
-            f"- Низкоконтрастные: {len(stats.quality_issues['low_contrast'])}",
-            f"- Размытые: {len(stats.quality_issues['blurred'])}"
+            "## quality images",
+            f"- dark: {len(stats.quality_issues['dark'])}",
+            f"- low contrast: {len(stats.quality_issues['low_contrast'])}",
+            f"- blured: {len(stats.quality_issues['blurred'])}"
         ]
         
         report_text = "\n".join(report)
@@ -278,7 +278,7 @@ class ImageAnalyzer:
     
 
     # Инициализация
-dataset = ImageDataset("C:/Users/zayka/ML_Project/oDEDA/dataset_example/train/images", num_workers=8)
+dataset = ImageDataset("C:/Users/zayka/ML_Project/oDEDA/dataset_example/train/images", num_workers=16)
 analyzer = ImageAnalyzer(dataset)
 
 # Анализ
@@ -290,4 +290,4 @@ report = analyzer.generate_report(stats, "report.md")
 # Просмотр результатов
 print(f"Найдено {len(stats.exact_duplicates)} групп точных дубликатов")
 print(f"Найдено {len(stats.near_duplicates)} групп near-duplicates")
-print(f"Проблемные изображения: {stats.quality_issues}")
+# print(f"Проблемные изображения: {stats.quality_issues}")
