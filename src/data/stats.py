@@ -143,6 +143,7 @@ class ImageStatsCollector:
             min_height=min(heights),
             max_height=max(heights),
             unique_hashes=len(set(hashes)),
+            duplicate_groups=duplicates,
             duplicate_count=sum(len(paths) - 1 for paths in duplicates.values()),
             brightness_mean=np.mean(brightness),
             brightness_std=np.std(brightness),
